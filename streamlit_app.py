@@ -235,7 +235,6 @@ def draw_histogram(dataset , varibale , n_rows , n_cols):
         ax = fig.add_subplot(n_rows , n_cols , i+1)
         dataset[var_name].hist(bins=10 , ax = ax)
         ax.set_title(var_name + " Distribution")
-    fig.tight_layout()
     st.pyplot(plt.gcf())
     
 draw_histogram(dataset , x , 5 , 3)
@@ -269,7 +268,7 @@ y_predict_test_ada = ada.predict(x_test)
 from sklearn import metrics
 
 st.write(metrics.classification_report(y_train , y_predict_train_ada))
-print()
+
 st.write(metrics.classification_report(y_test , y_predict_test_ada))
 
 
@@ -277,7 +276,7 @@ st.write(metrics.classification_report(y_test , y_predict_test_ada))
 
 
 st.write(metrics.accuracy_score(y_train , y_predict_train_ada))
-print()
+
 st.write(metrics.accuracy_score(y_test , y_predict_test_ada))
 
 
@@ -302,7 +301,7 @@ y_predict_test_gbc = gbc.predict(x_test)
 
 
 st.write(metrics.classification_report(y_train , y_predict_train_gbc))
-print()
+
 st.write(metrics.classification_report(y_test , y_predict_test_gbc))
 
 
@@ -310,7 +309,7 @@ st.write(metrics.classification_report(y_test , y_predict_test_gbc))
 
 
 st.write(metrics.accuracy_score(y_train , y_predict_train_gbc))
-print()
+
 st.write(metrics.accuracy_score(y_test , y_predict_test_gbc))
 
 
@@ -407,7 +406,7 @@ y_predict_test_rfc = rfc.predict(x_test)
 
 
 st.write(metrics.accuracy_score(y_train , y_predict_train_rfc))
-print()
+
 st.write(metrics.accuracy_score(y_test , y_predict_test_rfc))
 
 
@@ -529,9 +528,9 @@ vc = VotingClassifier(estimators)
 vc_cross_val = cross_val_score(vc , x_smote , y_smote ,cv = 10,  scoring='accuracy')
 
 
-st.write(label = 'cross val mean', value = vc_cross_val.mean())
+st.write(vc_cross_val.mean())
 
-st.write(label = 'cross_val_max' , value = vc_cross_val.max())
+st.write(vc_cross_val.max())
 
 
 # In[ ]:
@@ -554,7 +553,7 @@ vc_cross_val1 = cross_val_score(vc , x_smote , y_smote ,cv = 10,  scoring='accur
 st.write(vc_cross_val1)
 st.write(vc_cross_val1.mean())
 
-st.write(print(vc_cross_val1.max()))
+st.write(vc_cross_val1.max())
 
 
 # In[ ]:
