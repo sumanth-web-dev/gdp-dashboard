@@ -2,3 +2,7 @@ streamlit
 pandas
 scikit-learn
 os
+matplotlib
+seaborn
+imblearn
+xgboost
